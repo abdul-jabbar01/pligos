@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pligos/images/favicon.png" type="image/png">
 
-    <title>What is Pligos? :: Pligos Documentation</title>
+    <title>Types :: Pligos Documentation</title>
 
     
     <link href="/pligos/css/nucleus.css?1569933948" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pligos/summary/">
+  <body class="" data-url="/pligos/types/">
     <nav id="sidebar" class="">
 
 
@@ -77,8 +77,8 @@
   
     
     <li data-nav-id="/pligos/summary/" title="What is Pligos?" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/pligos/summary/">
@@ -187,8 +187,8 @@
   
     
     <li data-nav-id="/pligos/types/" title="Types" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/pligos/types/">
@@ -291,7 +291,7 @@
             
           
           
-            <a href='/pligos/'>Pligos Documentation</a> > What is Pligos?
+            <a href='/pligos/'>Pligos Documentation</a> > Types
           
          
           
@@ -316,6 +316,8 @@
 <li><a href="#created-at-19-sep-2019">Created at: 19 Sep 2019</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#types-yaml">types.yaml</a></li>
+<li><a href="#supported-types">Supported Types</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -335,7 +337,7 @@
           
             <h1>
               
-              What is Pligos?
+              Types
             </h1>
           
 
@@ -350,13 +352,54 @@
 
 <h5 id="created-at-19-sep-2019">Created at: 19 Sep 2019</h5>
 
-<p>Pligos enables scalable management of cloud infrastructures based on Helm. It helps you to manage your deployment in multiple environments by specifying your configurations in a single file called <strong><em>pligos.yaml</em></strong>. By using pligos, you <strong><em>don&rsquo;t need to play</em></strong> with the files within <em>templates</em> folder. <strong><em>Neither</em></strong> you have to dig into the multiple <em>values.yaml</em> files. We have a generic <em>templates</em> folder designed in a way to meet almost all of your needs for deploying micro-services in <em>real-platform</em>.</p>
+<h3 id="types-yaml">types.yaml</h3>
 
-<p>All you have to do is specify your values for <em>local</em>, <em>staging</em>, <em>production</em> or whatever, in pligos.yaml and you are good to go.</p>
+<p>types.yaml is a file where you define your custom definitions for your objects that you want to use within pligos.yaml.
+For example, you know that when we want to setup service for kubernetes, we need to know that service type and port.
+So, the service can be defined as:</p>
 
-<p>It makes much easier for you to manage cloud infrastructure. For example, if you want to update the hostname for your ingress in future, you don&rsquo;t have to find and replace it from bunch of files. You just need to modify your pligos.yaml accordingly.</p>
+<pre><code>service:
+  type: string
+  port: numeric
+</code></pre>
 
-<p><img src="https://abdul-jabbar01.github.io/pligoswhat-is-pligos.jpg" alt="" /></p>
+<p>Another example could be for <code>Image</code> that is used within deployment. So, you know that image has following attributes:</p>
+
+<ul>
+<li>registry</li>
+<li>repository</li>
+<li>tag</li>
+<li>pullPolicy</li>
+</ul>
+
+<p>So, it can be defined in <code>types.yaml</code> as :</p>
+
+<pre><code>image:
+  registry: string
+  repository: string
+  tag: string
+  pullPolicy: string
+</code></pre>
+
+<h3 id="supported-types">Supported Types</h3>
+
+<p>Pligos supports the following basic types:</p>
+
+<ul>
+<li>string</li>
+<li>numeric</li>
+<li>bool</li>
+<li>object</li>
+</ul>
+
+<p><strong>Additionally</strong> the language supports the following meta types which can be applied to any custom, or basic types:</p>
+
+<ul>
+<li>repeated</li>
+<li>mapped</li>
+<li>embedded</li>
+<li>embedded mapped</li>
+</ul>
 
 
 
@@ -397,23 +440,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -496,6 +522,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -533,10 +579,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pligos/" title="Pligos Documentation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pligos/flavor/" title="Pligos Flavor"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pligos/motivation/" title="Motivation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pligos/file-structure/" title="File Structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

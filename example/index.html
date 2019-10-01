@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pligos/images/favicon.png" type="image/png">
 
-    <title>What is Pligos? :: Pligos Documentation</title>
+    <title>Example :: Pligos Documentation</title>
 
     
     <link href="/pligos/css/nucleus.css?1569933948" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pligos/summary/">
+  <body class="" data-url="/pligos/example/">
     <nav id="sidebar" class="">
 
 
@@ -77,8 +77,8 @@
   
     
     <li data-nav-id="/pligos/summary/" title="What is Pligos?" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/pligos/summary/">
@@ -231,8 +231,8 @@
   
     
     <li data-nav-id="/pligos/example/" title="Example" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/pligos/example/">
@@ -291,7 +291,7 @@
             
           
           
-            <a href='/pligos/'>Pligos Documentation</a> > What is Pligos?
+            <a href='/pligos/'>Pligos Documentation</a> > Example
           
          
           
@@ -310,11 +310,7 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#author-abdul-jabbar">Author: Abdul Jabbar</a></li>
-<li><a href="#created-at-19-sep-2019">Created at: 19 Sep 2019</a></li>
-</ul></li>
+<li><a href="#example-using-pligos">Example Using Pligos</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -335,7 +331,7 @@
           
             <h1>
               
-              What is Pligos?
+              Example
             </h1>
           
 
@@ -346,17 +342,40 @@
 
 	
 
-<h5 id="author-abdul-jabbar">Author: Abdul Jabbar</h5>
+<h4 id="example-using-pligos">Example Using Pligos</h4>
 
-<h5 id="created-at-19-sep-2019">Created at: 19 Sep 2019</h5>
+<p>You can find an example at <a href="https://github.com/real-digital/pligos/tree/master/examples/pligos/configs/golang-hello-world">this</a> repo</p>
 
-<p>Pligos enables scalable management of cloud infrastructures based on Helm. It helps you to manage your deployment in multiple environments by specifying your configurations in a single file called <strong><em>pligos.yaml</em></strong>. By using pligos, you <strong><em>don&rsquo;t need to play</em></strong> with the files within <em>templates</em> folder. <strong><em>Neither</em></strong> you have to dig into the multiple <em>values.yaml</em> files. We have a generic <em>templates</em> folder designed in a way to meet almost all of your needs for deploying micro-services in <em>real-platform</em>.</p>
+<p>Clone the repo</p>
 
-<p>All you have to do is specify your values for <em>local</em>, <em>staging</em>, <em>production</em> or whatever, in pligos.yaml and you are good to go.</p>
+<pre><code>git clone https://github.com/real-digital/pligos.git
+</code></pre>
 
-<p>It makes much easier for you to manage cloud infrastructure. For example, if you want to update the hostname for your ingress in future, you don&rsquo;t have to find and replace it from bunch of files. You just need to modify your pligos.yaml accordingly.</p>
+<p>Get into the example directory</p>
 
-<p><img src="https://abdul-jabbar01.github.io/pligoswhat-is-pligos.jpg" alt="" /></p>
+<pre><code>cd pligos/examples/pligos/configs/golang-hello-world
+</code></pre>
+
+<p>The structure of this directory is as following:
+<img src="https://abdul-jabbar01.github.io/pligosexample-directory-before-running-pligos.png" alt="" /></p>
+
+<p><strong>Note:</strong> You can see that this directory is missing the <code>values.yaml</code> file and <code>templates</code> folder. Because these two will be created by pligos.</p>
+
+<p>So, Run the pligos command.</p>
+
+<pre><code>#helm pligos CONTEXT_NAME -c PATH_OF_PLIGOS.YAML
+helm pligos default -c .
+</code></pre>
+
+<p><strong>Note:</strong> Please keep in mind that we&rsquo;re using here &ldquo;default&rdquo; because our <code>pligos.yaml</code> contains the context named &ldquo;default&rdquo;.</p>
+
+<p>Now, you&rsquo;ll see that there is auto-generated <code>values.yaml</code> file and <code>templates</code> folder.
+<img src="https://abdul-jabbar01.github.io/pligosexample-directory-after-running-pligos.png" alt="" /></p>
+
+<p>So, now you can run your usual helm command to deploy this example.</p>
+
+<pre><code>helm upgrade --install .
+</code></pre>
 
 
 
@@ -397,23 +416,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -512,6 +514,23 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -533,10 +552,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pligos/" title="Pligos Documentation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pligos/file-structure/" title="File Structure"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pligos/motivation/" title="Motivation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pligos/summary/" title="What is Pligos?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

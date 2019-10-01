@@ -1131,3 +1131,10 @@ pre .copy-to-clipboard:hover {
 #searchResults {
     text-align: left;
 }
+
+
+img[src$='#floatleft']
+{
+    float:left;
+    display: block !important;
+}

@@ -9,21 +9,21 @@
 
     <link rel="icon" href="/pligos/images/favicon.png" type="image/png">
 
-    <title>Pligos - Homepage :: My New Hugo Site</title>
+    <title>Pligos Documentation :: Pligos Documentation</title>
 
     
-    <link href="/pligos/css/nucleus.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/fontawesome-all.min.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/hybrid.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/featherlight.min.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/perfect-scrollbar.min.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/auto-complete.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/atom-one-dark-reasonable.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/theme.css?1569917940" rel="stylesheet">
-    <link href="/pligos/css/hugo-theme.css?1569917940" rel="stylesheet">
+    <link href="/pligos/css/nucleus.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/fontawesome-all.min.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/hybrid.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/featherlight.min.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/perfect-scrollbar.min.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/auto-complete.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/atom-one-dark-reasonable.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/theme.css?1569933948" rel="stylesheet">
+    <link href="/pligos/css/hugo-theme.css?1569933948" rel="stylesheet">
     
 
-    <script src="/pligos/js/jquery-3.3.1.min.js?1569917940"></script>
+    <script src="/pligos/js/jquery-3.3.1.min.js?1569933948"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -40,8 +40,8 @@
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="https://abdul-jabbar01.github.io/pligos/">
-    <h2 style="color: white;">Pligos</h2>
+      <a id="logo" href="https://abdul-jabbar01.github.io/pligos">
+    <h2 style="color: white;font-size: 2.0rem">Pligos Documentation</h2>
   
 </a>
 
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pligos/js/lunr.min.js?1569917940"></script>
-<script type="text/javascript" src="/pligos/js/auto-complete.js?1569917940"></script>
+<script type="text/javascript" src="/pligos/js/lunr.min.js?1569933948"></script>
+<script type="text/javascript" src="/pligos/js/auto-complete.js?1569933948"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/abdul-jabbar01.github.io\/pligos\/";
+        var baseurl = "https:\/\/abdul-jabbar01.github.io\/pligos";
     
 </script>
-<script type="text/javascript" src="/pligos/js/search.js?1569917940"></script>
+<script type="text/javascript" src="/pligos/js/search.js?1569933948"></script>
 
     
   </div>
@@ -186,6 +186,28 @@
  
   
     
+    <li data-nav-id="/pligos/types/" title="Types" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/pligos/types/">
+          Types
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
     <li data-nav-id="/pligos/file-structure/" title="File Structure" class="dd-item 
         
         
@@ -193,6 +215,28 @@
         ">
       <a href="/pligos/file-structure/">
           File Structure
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/pligos/example/" title="Example" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/pligos/example/">
+          Example
           
       </a>
       
@@ -241,17 +285,33 @@
  
 
 
-<h3 id="summary">Summary</h3>
+<h1>Pligos Documentation</h1>
 
 <h5 id="author-abdul-jabbar">Author: Abdul Jabbar</h5>
 
 <h5 id="created-at-19-sep-2019">Created at: 19 Sep 2019</h5>
 
-<p>Pligos enables scalable management of cloud infrastructures based on Helm. It helps you to manage your deployment in multiple environments by specifying your configurations in a single file called <strong><em>pligos.yaml</em></strong>. By using pligos, you <strong><em>don&rsquo;t need to play</em></strong> with the files within <em>templates</em> folder. <strong><em>Neither</em></strong> you have to dig into the multiple <em>values.yaml</em> files. We have a generic <em>templates</em> folder designed in a way to meet almost all of your needs for deploying micro-services in <em>real-platform</em>.</p>
+<h3 id="overview">Overview</h3>
 
-<p>All you have to do is specify your values for <em>local</em>, <em>staging</em>, <em>production</em> or whatever, in pligos.yaml and you are good to go.</p>
+<p>Pligos allows you to navigate multiple services by making kubernetes
+infrastructure configuration scalable. Without pligos, the usual
+approach is to create a seperate helm chart for each service. While
+this definitely can scale for a small amount of services, maintaining
+<code>deployment, service, ingress, ...</code> templates for more than 5 helm
+charts can be <strong>burdensome</strong> and error prone.</p>
 
-<p>It makes much easier for you to manage cloud infrastructure. For example, if you want to update the hostname for your ingress in future, you don&rsquo;t have to find and replace it from bunch of files. You just need to modify your pligos.yaml accordingly.</p>
+<p>We observed that services, in it&rsquo;s core, often don&rsquo;t differ that
+much. You can find a set of configurations that need to be
+individually defined for each service, such as <code>images, routes,
+mounts, ...</code>, so why not standardize around these configuration types,
+while beeing disconnected from the underlying templates? This is why
+pligos let&rsquo;s you define these configuration types (<code>image, route,
+...</code>) and adds a schema language that allows you to compile those
+configs into any form necessary.</p>
+
+<p>So, what you will end up with is a small set of helm starters (in
+pligos lingua franca they are called flavors) and a pligos
+configuration for each service that map to these flavors.</p>
 	
   
         
@@ -379,6 +439,38 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -399,19 +491,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pligos/js/clipboard.min.js?1569917940"></script>
-    <script src="/pligos/js/perfect-scrollbar.min.js?1569917940"></script>
-    <script src="/pligos/js/perfect-scrollbar.jquery.min.js?1569917940"></script>
-    <script src="/pligos/js/jquery.sticky.js?1569917940"></script>
-    <script src="/pligos/js/featherlight.min.js?1569917940"></script>
-    <script src="/pligos/js/highlight.pack.js?1569917940"></script>
+    <script src="/pligos/js/clipboard.min.js?1569933948"></script>
+    <script src="/pligos/js/perfect-scrollbar.min.js?1569933948"></script>
+    <script src="/pligos/js/perfect-scrollbar.jquery.min.js?1569933948"></script>
+    <script src="/pligos/js/jquery.sticky.js?1569933948"></script>
+    <script src="/pligos/js/featherlight.min.js?1569933948"></script>
+    <script src="/pligos/js/highlight.pack.js?1569933948"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pligos/js/modernizr.custom-3.6.0.js?1569917940"></script>
-    <script src="/pligos/js/learn.js?1569917940"></script>
-    <script src="/pligos/js/hugo-learn.js?1569917940"></script>
+    <script src="/pligos/js/modernizr.custom-3.6.0.js?1569933948"></script>
+    <script src="/pligos/js/learn.js?1569933948"></script>
+    <script src="/pligos/js/hugo-learn.js?1569933948"></script>
 
-    <link href="/pligos/mermaid/mermaid.css?1569917940" rel="stylesheet" />
-    <script src="/pligos/mermaid/mermaid.js?1569917940"></script>
+    <link href="/pligos/mermaid/mermaid.css?1569933948" rel="stylesheet" />
+    <script src="/pligos/mermaid/mermaid.js?1569933948"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
